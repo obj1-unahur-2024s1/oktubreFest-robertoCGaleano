@@ -1,0 +1,25 @@
+import MarcasYJarras.*
+import personas.*
+
+describe "test primera parte"{
+	const hofbrau1= new Hofbrau(lupulo=3.2, paisFabricacion= "Armenia")
+	const jarra1= new Jarra(capacidad= 0.5, marcaCerveza= hofbrau1)
+	const persona1= new Belga(peso= 80, nivelDeAguante= 20)
+	method initialize(){
+		persona1.comprarJarra(jarra1)
+	}
+	
+	test "contenido de alchol de la jarra1 0.04"{
+		assert.equals(0.04, jarra1.contenidoAlcohol())
+	}
+	
+	test "total de alcohol que ingirio persona1 0.04 "{
+		assert.equals(0.04, persona1.totalAlcoholIngerido())
+	}
+	test "persona1 no esta ebria"{
+		assert.notThat(persona1.estaEbria())
+	}
+	test "a persona1 no le gusta la cerveza hofbrau1"{
+		assert.notThat(persona1.leGustanLasCervezas(hofbrau1))
+	}
+}
